@@ -1,0 +1,23 @@
+# Configuration for Cog ⚙️
+# Reference: https://github.com/replicate/cog/blob/main/docs/yaml.md
+
+build:
+  gpu: true
+  system_packages:
+    - "libgl1-mesa-glx"
+    - "libglib2.0-0"
+  python_version: "3.10"
+  python_packages:
+    - "accelerate==0.28.0"
+    - "torch==2.0.1"
+    - "torchvision==0.15.2"
+    - "diffusers==0.27.0"
+    - "Pillow==10.2.0"
+    - "transformers==4.39.0"
+    - "xformers==0.0.22"
+    - "opencv-python-headless==4.9.0.80"
+    - "hf_transfer==0.1.6"
+    
+  run:
+    - curl -o /usr/local/bin/pget -L "https://github.com/replicate/pget/releases/download/v0.5.6/pget_linux_x86_64" && chmod +x /usr/local/bin/pget
+predict: "predict.py:Predictor"
